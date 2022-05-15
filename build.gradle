@@ -1,0 +1,20 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.1.3' apply false
+    id 'com.android.library' version '7.1.3' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.20' apply false
+    id "com.dropbox.affectedmoduledetector" version "0.1.5"
+}
+
+affectedModuleDetector {
+    baseDir = "${project.rootDir}"
+    pathsAffectingAllModules = []
+    logFolder = "${project.rootDir}/tools/impact-analysis/output"
+    specifiedBranch = "reactive"
+    compareFrom = "SpecifiedBranchCommit"
+    includeUncommitted = false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
