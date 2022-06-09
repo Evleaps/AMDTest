@@ -11,9 +11,16 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        Thread.sleep(1000)
-        println("ROMAN: core module")
+    fun test1() {
+        Thread.sleep(2000)
+        println("ROMAN: core module 1")
+        assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun test2() {
+        Thread.sleep(2000)
+        println("ROMAN: core module 2")
         assertEquals(4, 2 + 2)
     }
 }
