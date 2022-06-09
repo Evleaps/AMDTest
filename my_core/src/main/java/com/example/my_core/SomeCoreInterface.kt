@@ -1,6 +1,6 @@
 package com.example.my_core
 
-interface SomeCoreClass {
+interface SomeCoreInterface {
 
     val someField: String
 }

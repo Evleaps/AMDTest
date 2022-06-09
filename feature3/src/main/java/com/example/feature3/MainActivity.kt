@@ -2,9 +2,9 @@ package com.example.feature3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.my_core.SomeCoreClass
+import com.example.my_core.SomeCoreInterface
 
-class MainActivity : AppCompatActivity(), SomeCoreClass {
+class MainActivity : AppCompatActivity(), SomeCoreInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

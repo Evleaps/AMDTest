@@ -2,14 +2,10 @@ package com.example.feature_one
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.my_core.SomeCoreClass
 
-class MainActivity : AppCompatActivity(), SomeCoreClass {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
-    override val someField: String
-        get() = "f1"
 }
