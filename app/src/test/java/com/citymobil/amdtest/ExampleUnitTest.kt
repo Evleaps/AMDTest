@@ -12,6 +12,7 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
+        Thread.sleep(5_000)
         assertEquals(4, 2 + 2)
     }
 }
