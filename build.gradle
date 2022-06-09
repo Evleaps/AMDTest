@@ -10,7 +10,7 @@ affectedModuleDetector {
     baseDir = "${project.rootDir}"
     pathsAffectingAllModules = []
     logFolder = "${project.rootDir}/tools/impact-analysis/output"
-    specifiedBranch = "dev"
+    specifiedBranch = "origin/dev"
     compareFrom = "SpecifiedBranchCommit"
     includeUncommitted = false
 }
