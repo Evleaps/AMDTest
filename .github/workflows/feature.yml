@@ -15,6 +15,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: unit-tests
-      run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
+      run: ./gradlew runAffectedUnitTests
     - name: Build with Gradle
       run: ./gradlew build
