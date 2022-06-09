@@ -11,5 +11,5 @@ class MainActivity : AppCompatActivity(), SomeCoreClass {
     }
 
     override val someField: String
-        get() = "f1"
+        get() = "f1 changed"
 }
