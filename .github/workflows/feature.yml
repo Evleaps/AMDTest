@@ -26,7 +26,7 @@ jobs:
       - name: clean
         run: ./gradlew clean
       - name: unit-tests
-        run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable -Paffected_module_detector.dependentProjects
+        run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
       - name: show-log
         run: cat /home/runner/work/AMDTest/AMDTest/tools/impact-analysis/output/affected_module_detector.log
 
