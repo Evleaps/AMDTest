@@ -12,5 +12,5 @@ class MainActivity : AppCompatActivity(), SomeCoreClass {
     }
 
     override val someField: String
-        get() = "app"
+        get() = "app module"
 }
