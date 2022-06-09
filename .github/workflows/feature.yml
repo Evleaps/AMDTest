@@ -24,7 +24,7 @@ jobs:
       - name: fetch_dev
         run: git fetch origin dev:dev
       - name: unit-tests
-        run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
+        run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable -Paffected_module_detector.dependentProjects
       - name: show-log
         run: cat /home/runner/work/AMDTest/AMDTest/tools/impact-analysis/output/affected_module_detector.log
 
