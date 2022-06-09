@@ -14,6 +14,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: fetch_dev
+      run: git fetch origin dev:dev
     - name: unit-tests
       run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
     - name: Build with Gradle
