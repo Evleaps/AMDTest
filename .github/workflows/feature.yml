@@ -30,11 +30,11 @@ jobs:
       - name: show-log
         run: cat /home/runner/work/AMDTest/AMDTest/tools/impact-analysis/output/affected_module_detector.log
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: Grant execute permission for gradlew
+#      run: chmod +x gradlew
+#    - name: Build with Gradle
+#      run: ./gradlew build
