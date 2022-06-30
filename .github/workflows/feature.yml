@@ -6,47 +6,36 @@ on:
       - 'dev'
 
 jobs:
-  unit-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: clean
-        run: ./gradlew clean
-      - name: unit-tests
-        run: ./gradlew testDebugUnitTest
-
-  unit-test-without-clean:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: unit-tests
-        run: ./gradlew testDebugUnitTest
+#  unit-test:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Grant execute permission for gradlew
+#        run: chmod +x gradlew
+#      - name: unit-tests
+#        run: ./gradlew testDebugUnitTest
 
   unit-test-by-impact:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 'Prepare branch name'
+        run: |
+          if [[ ${{ github.event_name }} == 'workflow_dispatch' ]]; then
+            current_branch="$GITHUB_REF_NAME"
+          else
+            current_branch="$GITHUB_HEAD_REF"
+          fi
+          echo "BRANCH_NAME=${current_branch}" >> $GITHUB_ENV
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: fetch_dev
-        run: git fetch origin dev:dev
-      - name: clean
-        run: ./gradlew clean
-      - name: unit-tests
-        run: ./gradlew runAffectedUnitTests -Paffected_module_detector.enable
-      - name: show-log
-        run: cat /home/runner/work/AMDTest/AMDTest/tools/impact-analysis/output/affected_module_detector.log
-
-  unit-test-by-impact-without-clean:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: 'Debug'
+        run: |
+          git rev-parse --abbrev-ref HEAD
+          echo "git show-branch -a:"
+          git show-branch -a
       - name: fetch_dev
         run: git fetch origin dev:dev
       - name: unit-tests
