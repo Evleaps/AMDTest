@@ -6,6 +6,7 @@ import Sha
 class ForkCommit: CommitShaProvider {
     override fun get(commandRunner: GitClient.CommandRunner): Sha {
         val currentBranch = commandRunner.executeAndParseFirst(CURRENT_BRANCH_CMD)
+        println("ROMAN!!!!!!!!!  -> currentBranch: $currentBranch")
 
         val parentBranch = commandRunner.executeAndParse(SHOW_ALL_BRANCHES_CMD)
             .firstOrNull { !it.contains(currentBranch) && it.contains("*") }
@@ -13,6 +14,8 @@ class ForkCommit: CommitShaProvider {
             ?.substringBefore("]")
             ?.substringBefore("~")
             ?.substringBefore("^")
+
+        println("ROMAN!!!!!!!!!  -> parentBranch: $parentBranch")
 
         requireNotNull(parentBranch) {
             "Parent branch not found"
