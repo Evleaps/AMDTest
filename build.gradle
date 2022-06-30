@@ -26,8 +26,7 @@ affectedModuleDetector {
     baseDir = "${project.rootDir}"
     pathsAffectingAllModules = []
     logFolder = "${project.rootDir}/tools/impact-analysis/output"
-    specifiedBranch = "dev"
-    compareFrom = "SpecifiedBranchCommit"
+    compareFrom = "ForkCommit"
     includeUncommitted = false
 }
 
