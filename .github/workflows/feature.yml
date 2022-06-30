@@ -26,7 +26,8 @@ jobs:
             current_branch="$GITHUB_HEAD_REF"
           fi
           echo "BRANCH_NAME=${current_branch}" >> $GITHUB_ENV
-      - uses: actions/checkout@v3
+          echo "br_n: ${{ $GITHUB_HEAD_REF }}"
+      - uses: actions/checkout@v2
         with:
             ref: ${{ env.BRANCH_NAME }}
       - name: Grant execute permission for gradlew
